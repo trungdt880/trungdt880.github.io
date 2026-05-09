@@ -1,24 +1,33 @@
-// Default black theme
+// Catppuccin-Mocha-inspired dark theme
 
-// Color variables
-$black: #000000;
-$red: #000000;
-$red-dark: #000000;
-$white: #fff;
+@import "variables";
 
-// Config
-$color-background: $red !default;
-$color-dot-accent: $white !default;
-$color-foreground: $white !default;
-$color-title: $white !default;
-$color-body-text: $white !default;
-$color-text-accent: $white !default;
-$color-code: $white !default;
-$color-nav-link: $white !default;
-$color-primary-link: $white !default;
+// Theme bindings (mapped to legacy variable names so older includes still work)
+$color-background:   $base;
+$color-surface:      $surface0;
+$color-surface-alt:  $mantle;
+$color-foreground:   $text;
+$color-body-text:    $text;
+$color-muted:        $overlay1;
+$color-title:        $rosewater;
+$color-text-accent:  $pink;
+$color-code:         $teal;
+$color-nav-link:     $mauve;
+$color-primary-link: $blue;
+$color-dot-accent:   $pink;
 
-// Import sass partials (used in all themes)
-@import "variables",
-"base",
-"components",
-"utilities";
+// Syntax (used by nvim-style content + Rouge highlighter)
+$hl-keyword:   $mauve;
+$hl-string:    $green;
+$hl-number:    $peach;
+$hl-comment:   $overlay1;
+$hl-function:  $blue;
+$hl-property:  $sapphire;
+$hl-operator:  $sky;
+$hl-builtin:   $teal;
+$hl-type:      $yellow;
+$hl-tag:       $red;
+$hl-emph:      $pink;
+$hl-bracket:   $subtext1;
+
+@import "base", "components", "utilities";

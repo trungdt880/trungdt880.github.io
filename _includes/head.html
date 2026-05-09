@@ -2,107 +2,65 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1e1e2e" />
 
   <title>
-    {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape
-    }}{% endif %}
+    {% if page.title %}{{ page.title | escape }} · {{ site.title | escape }}{% else %}{{ site.title | escape }} · phd · vla &amp; world models{% endif %}
   </title>
   <meta
     name="description"
-    content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}"
+    content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description | strip_html | strip_newlines | truncate: 200 }}{% endif %}"
   />
 
-  {% assign user_url = site.url | append: site.baseurl %} {% assign
-  full_base_url = user_url | default: site.github.url %}
+  {% assign user_url = site.url | append: site.baseurl %}
+  {% assign full_base_url = user_url | default: site.github.url %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="/assets/academicons.min.css" />
 
   <link
     rel="canonical"
     href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
   />
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}"
-  href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+        href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="stylesheet" href="/assets/academicons.min.css"/>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
-
   <link rel="manifest" href="/site.webmanifest" />
-  <script async defer src="/assets/github-buttons.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ site.title }} — PhD · VLA & world models" />
+  <meta property="og:description" content="{{ site.description | strip_html | strip_newlines | truncate: 200 }}" />
+  <meta property="og:url" content="{{ site.url }}" />
+  <meta property="og:type" content="website" />
+
+  <!-- Mathjax (blog posts) -->
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-      extensions: [
-        "MathMenu.js",
-        "MathZoom.js",
-        "AssistiveMML.js",
-        "a11y/accessibility-menu.js"
-      ],
-      jax: ["input/TeX", "output/CommonHTML"],
-      TeX: {
-        extensions: [
-          "AMSmath.js",
-          "AMSsymbols.js",
-          "noErrors.js",
-          "noUndefined.js",
-        ]
-      }
-    });
-    MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
-      var TEX = MathJax.InputJax.TeX;
-      var COLS = function (W) {
-        var WW = [];
-        for (var i = 0, m = W.length; i < m; i++)
-          {WW[i] = TEX.Parse.prototype.Em(W[i])}
-        return WW.join(" ");
-      };
-      TEX.Definitions.Add({
-        environment: {
-          psmallmatrix: ['Array',null,'(',')','c',COLS([1/3]),".2em",'S',1],
-        }
-      });
+      extensions: ["MathMenu.js","MathZoom.js","AssistiveMML.js","a11y/accessibility-menu.js"],
+      jax: ["input/TeX","output/CommonHTML"],
+      TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"] }
     });
   </script>
+  <script type="text/javascript" async
+          src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DKBTE2MRYH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-DKBTE2MRYH');
   </script>
 
-  <!-- Mathjax Support -->
-  <script
-    type="text/javascript"
-    async
-    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"
-  ></script>
-
-
- <script>
-  $(document).ready(function() {
-    console.log("hello"); // This will print "hello" to the console if the JavaScript is running
-
-    $('.publication').mouseover(function() {
-      console.log("Mouseover event triggered");
-      const video = $(this).find('video')[0]; // Get the DOM element
-      console.log("Video element found:", video);
-        $(video).css('display', 'block');
-        $(this).find('img').css('display', 'none');
-    });
-
-    $('.publication').mouseout(function() {
-      console.log("Mouseout event triggered");
-      const video = $(this).find('video')[0]; // Get the DOM element
-      console.log("Video element found:", video);
-        $(video).css('display', 'none');
-        $(this).find('img').css('display', 'block');
-    });
-  });
-</script> 
-  <script src="{{ site.fa }}"></script>
+  <script src="{{ site.fa }}" crossorigin="anonymous"></script>
 </head>

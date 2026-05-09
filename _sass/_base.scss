@@ -1,21 +1,19 @@
-/**
-  * Reset some basic elements
-*/
-
 @font-face {
   font-family: 'firasansregular';
   src: url('/assets/fonts/firasans-regular-webfont.woff2') format('woff2'),
-  url('/assets/fonts/firasans-regular-webfont.woff') format('woff');
+       url('/assets/fonts/firasans-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'jetbrains_monoregular';
+  font-family: 'JetBrainsMono';
   src: url('/assets/fonts/jetbrainsmono-regular-webfont.woff2') format('woff2'),
-  url('/assets/fonts/jetbrainsmono-regular-webfont.woff') format('woff');
+       url('/assets/fonts/jetbrainsmono-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 * {
@@ -23,15 +21,19 @@
   margin: 0;
 }
 
-input,
-select,
-textarea,
-button {
+*::selection {
+  background: rgba($mauve, 0.35);
+  color: $rosewater;
+}
+
+input, select, textarea, button {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  color: inherit;
 }
 
+html { scroll-behavior: smooth; }
 
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
@@ -40,50 +42,47 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
-
-/**
- * Basic styling
- */
 body {
   font-family: $body-font-family;
   font-size: $body-font-size;
-  line-height: 1.5;
+  line-height: 1.6;
   color: $color-body-text;
-  background-color: $black;
+  background-color: $color-background;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba($mauve, 0.10), transparent 38%),
+    radial-gradient(circle at 88% 92%, rgba($blue, 0.08), transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba($pink, 0.04), transparent 60%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-feature-settings: "calt" 1, "liga" 1, "ss01" 1, "ss02" 1, "zero" 1;
+  padding-bottom: 96px; // leave room for fixed cmdline
 }
 
-p {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
+p { margin-top: 0; margin-bottom: 0.5em; }
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 1em;
   margin-bottom: 0.25em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-h1, .h1 {
-  font-size: $h1-size;
-}
-
-h2, .h2 {
-  font-size: $h2-size;
-}
-
-h3, .h3 {
-  font-size: $h3-size;
-}
-
-h4, .h4 {
-  font-size: $h4-size;
-}
-
-h5, .h5 {
-  font-size: $h5-size;
-}
-
+h1, .h1 { font-size: $h1-size; }
+h2, .h2 { font-size: $h2-size; }
+h3, .h3 { font-size: $h3-size; }
+h4, .h4 { font-size: $h4-size; }
+h5, .h5 { font-size: $h5-size; }
 h6, .h6 {
   font-size: $h6-size;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: $mantle; }
+::-webkit-scrollbar-thumb {
+  background: $surface1;
+  border-radius: 4px;
+  border: 2px solid $mantle;
+}
+::-webkit-scrollbar-thumb:hover { background: $surface2; }

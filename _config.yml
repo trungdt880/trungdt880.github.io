@@ -1,6 +1,8 @@
 title: "Trung Dao"
+short_title: "trung-dao"
+tagline: "phd student · vla & world models"
 description: |+
-  Greetings! I am a Staff Machine Learning Engineer at Qualcomm AI Research, specializing in the development and optimization of cutting-edge multimodal and generative models for edge devices. My work focuses on achieving extreme efficiency without compromising performance, exemplified by pioneering distillation techniques and advanced quantization recipes. Previously, I was a Research Resident at VinAI Research, where I am fortunate to work under the mentorship of Dr. Anh Tran and Dr. Cuong Pham. My primary research interests emphasized on Deep Generative Models, including GANs and Diffusion Models.
+  1st-year PhD student at UW-Madison, advised by Prof. Yong Jae Lee. I work on vision-language-action (VLA) models and world models, with the broader goal of teaching machines to perceive, simulate, and act. Previously I was a Staff Machine Learning Engineer at Qualcomm AI Research (efficient generative & multimodal models for edge) and a Research Resident at VinAI Research (advised by Dr. Anh Tran and Dr. Cuong Pham), where I focused on diffusion distillation and GANs.
 
 locale: en
 url: https://trung-dt.com
@@ -9,18 +11,19 @@ links:
   scholar:
     URL: https://scholar.google.com/citations?user=FZmxEYYAAAAJ&hl=en
     icon: fa-brands fa-google-scholar
+    label: scholar
   github:
-    URL: https://github.com/bomcon123456
+    URL: https://github.com/trungdt880
     icon: fab fa-github-alt
+    label: github
   linkedin:
     URL: https://www.linkedin.com/in/trung-dt880
     icon: fab fa-linkedin-in
-  # kaggle:
-  #   URL: https://kaggle.com/termanteus
-  #   icon: fab fa-kaggle
+    label: linkedin
   goodreads:
     URL: https://www.goodreads.com/user/show/106769734-trung-dao
     icon: fas fa-book
+    label: goodreads
 
 # google_analytics: UA-135929937-1
 fa: https://kit.fontawesome.com/a24e8ec4a3.js

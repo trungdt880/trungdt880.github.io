@@ -1,16 +1,65 @@
 <!DOCTYPE html>
-<html>
-  {% include head.html %}
+<html lang="en">
+{% include head.html %}
+<body class="theme-mocha">
+  {% include header.html %}
 
-  <body>
-    <div>
-        {% include header.html %}
-
-      <div class="container mx-auto px-2 py-4">
-        {% for post in site.posts %} {% include post_block.html %} {% endfor %}
+  <section class="nvim">
+    <div class="nvim-window">
+      <div class="nvim-titlebar">
+        <div class="lights">
+          <span class="light-r"></span>
+          <span class="light-y"></span>
+          <span class="light-g"></span>
+        </div>
+        <div class="path"><span class="dim">~/</span>trung-dao<span class="dim">/</span>blog<span class="dim">/</span></div>
+        <div class="badge">:Telescope find_files</div>
       </div>
 
-      {% include footer.html %}
+      <div class="nvim-tabline">
+        <a href="/" class="nvim-tab"><span class="tab-num">1</span><span class="tab-name">whoami.lua</span></a>
+        <a href="/#news" class="nvim-tab"><span class="tab-num">2</span><span class="tab-name">news.md</span></a>
+        <a href="/#pubs" class="nvim-tab"><span class="tab-num">3</span><span class="tab-name">publications.bib</span></a>
+        <a href="/#contact" class="nvim-tab"><span class="tab-num">4</span><span class="tab-name">contact.json</span></a>
+        <a href="/blog/" class="nvim-tab active"><span class="tab-num">5</span><span class="tab-name">blog/</span></a>
+      </div>
+
+      <div class="picker-body">
+        <div class="picker-prompt">
+          <span class="picker-arrow">&gt;</span>
+          <span class="picker-input">find_files <span class="picker-caret">_</span></span>
+          <span class="picker-meta">{{ site.posts | size }} results</span>
+        </div>
+
+        <ul class="picker-list">
+          {% for post in site.posts %}
+            {% assign words = post.content | number_of_words %}
+            {% assign mins = words | divided_by: 180 | plus: 1 %}
+            {% assign fname = post.path | split: '/' | last | replace: '.md', '' %}
+            <li class="picker-row">
+              <a class="picker-link" href="{{ post.url | prepend: site.baseurl }}">
+                <span class="picker-icon">md</span>
+                <span class="picker-name">{{ fname }}.md</span>
+                <span class="picker-spacer"></span>
+                <span class="picker-meta-cell">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <span class="picker-meta-cell">~{{ mins }} min</span>
+              </a>
+              <p class="picker-desc">{{ post.title }}{% if post.excerpt %} &mdash; {{ post.excerpt | strip_html | truncatewords: 22 }}{% endif %}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="nvim-statusline" aria-hidden="true">
+        <div class="seg mode">NORMAL</div>
+        <div class="seg seg-branch"><i class="fas fa-code-branch"></i> master</div>
+        <div class="seg seg-file">~/trung-dao/blog/</div>
+        <div class="seg seg-info">utf-8 · LF · md</div>
+        <div class="seg seg-pos">{{ site.posts | size }}/{{ site.posts | size }}</div>
+      </div>
     </div>
-  </body>
+  </section>
+
+  {% include footer.html %}
+</body>
 </html>

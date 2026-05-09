@@ -1,128 +1,299 @@
 <!DOCTYPE html>
-<html>
-   {% include head.html %}
-   <body>
-      <div>
-      <header class="header-background">
-         {% include particles.html %}
-         <div class="clearfix border-bottom-thick header-border">
-            {% include navbar.html %}
-         </div>
-         <div class="container mx-auto px-2 mb-2 clearfix header-text">
-            <h1
-               class="h0 inline-block col-9 sm-width-full py-4 mt-3 header-title"
-               >
-               {{ site.title }}
-            </h1>
-            <div class="clearfix mb-4 py-1">
-               <div class="col-12 sm-width-full left border-top-thin">
-                  <div class="table">
-                     {% for link in site.links %}
-                     <div class="inline-block mt-3 mr-1">
-                        <a
-                           href="{{ link[1].URL }}"
-                           target="_blank"
-                           class="link-social block"
-                           >
-                        <i class="{{ link[1].icon }}"></i>
-                        </a>
-                     </div>
-                     {% endfor %}
-                  </div>
-                  <!-- Set site description in config.yml -->
-                  <p class="h4 lh-condensed font-smoothing mt-2 py-1">
-                     {{ site.description }}
-                  </p>
-               </div>
+<html lang="en">
+{% include head.html %}
+<body class="theme-mocha">
+  <!-- ====================================================================
+       HERO :: nvim window with whoami.lua
+       ==================================================================== -->
+  <section class="nvim" id="top">
+    <div class="nvim-window">
+      <div class="nvim-titlebar">
+        <div class="lights">
+          <span class="light-r"></span>
+          <span class="light-y"></span>
+          <span class="light-g"></span>
+        </div>
+        <div class="path"><span class="dim">~/</span>trung-dao<span class="dim">/</span>whoami.lua</div>
+        <div class="badge">NVIM v0.10.0</div>
+      </div>
+
+      <div class="nvim-tabline" role="tablist">
+        <a href="#top"  class="nvim-tab active" data-tab="whoami">
+          <span class="tab-num">1</span>
+          <span class="tab-name">whoami.lua</span>
+        </a>
+        <a href="#news" class="nvim-tab" data-tab="news">
+          <span class="tab-num">2</span>
+          <span class="tab-name">news.md</span>
+        </a>
+        <a href="#pubs" class="nvim-tab" data-tab="pubs">
+          <span class="tab-num">3</span>
+          <span class="tab-name">publications.bib</span>
+        </a>
+        <a href="#contact" class="nvim-tab" data-tab="contact">
+          <span class="tab-num">4</span>
+          <span class="tab-name">contact.json</span>
+        </a>
+        <a href="/blog/" class="nvim-tab" data-tab="blog">
+          <span class="tab-num">5</span>
+          <span class="tab-name">blog/</span>
+        </a>
+      </div>
+
+      <div class="nvim-body">
+        <div class="nvim-gutter" aria-hidden="true">
+          <span>1</span><span>2</span><span>3</span><span>4</span>
+          <span>5</span><span>6</span><span>7</span><span>8</span>
+          <span>9</span><span>10</span><span>11</span><span>12</span>
+          <span>13</span><span>14</span><span>15</span>
+          <span class="cur">16</span>
+        </div>
+        <div class="nvim-content" id="hero-content">
+<div class="line"><span class="tk-com">--- whoami.lua · ":h trung" for help</span></div>
+<div class="line"><span class="tk-com">--- press <span class="tk-em">?</span> any time for keymaps · type <span class="tk-em">:help</span> below</span></div>
+<div class="line line-empty"></div>
+<div class="line"><span class="tk-kw">local</span> <span class="tk-prop">me</span> <span class="tk-op">=</span> <span class="tk-br">{</span></div>
+<div class="line">  <span class="tk-prop">name</span>      <span class="tk-op">=</span> <span class="tk-str">"Trung Dao"</span><span class="tk-br">,</span></div>
+<div class="line">  <span class="tk-prop">role</span>      <span class="tk-op">=</span> <span class="tk-str">"PhD Student"</span><span class="tk-br">,</span></div>
+<div class="line">  <span class="tk-prop">institute</span> <span class="tk-op">=</span> <span class="tk-str">"University of Wisconsin–Madison"</span><span class="tk-br">,</span></div>
+<div class="line">  <span class="tk-prop">advisor</span>   <span class="tk-op">=</span> <span class="tk-fn">require</span><span class="tk-br">(</span><span class="tk-str">"prof"</span><span class="tk-br">)</span><span class="tk-op">.</span><span class="tk-fn">load</span><span class="tk-br">(</span><span class="tk-str">"Yong Jae Lee"</span><span class="tk-br">),</span></div>
+<div class="line">  <span class="tk-prop">research</span>  <span class="tk-op">=</span> <span class="tk-br">{</span> <span class="tk-str">"vision-language-action"</span><span class="tk-br">,</span> <span class="tk-str">"world models"</span> <span class="tk-br">},</span></div>
+<div class="line">  <span class="tk-prop">prev</span>      <span class="tk-op">=</span> <span class="tk-br">{</span></div>
+<div class="line">    <span class="tk-br">{</span> <span class="tk-prop">org</span> <span class="tk-op">=</span> <span class="tk-str">"Qualcomm AI Research"</span><span class="tk-br">,</span> <span class="tk-prop">title</span> <span class="tk-op">=</span> <span class="tk-str">"Staff ML Engineer"</span> <span class="tk-br">},</span></div>
+<div class="line">    <span class="tk-br">{</span> <span class="tk-prop">org</span> <span class="tk-op">=</span> <span class="tk-str">"VinAI Research"</span><span class="tk-br">,</span>        <span class="tk-prop">title</span> <span class="tk-op">=</span> <span class="tk-str">"AI Engineer &amp; Research Resident"</span> <span class="tk-br">},</span></div>
+<div class="line">  <span class="tk-br">},</span></div>
+<!-- <div class="line">  <span class="tk-prop">vibes</span>     <span class="tk-op">=</span> <span class="tk-br">{</span> <span class="tk-str">"coldbrew"</span><span class="tk-br">,</span> <span class="tk-str">"sleep"</span><span class="tk-br">,</span> <span class="tk-str">"brainrot with my cats"</span> <span class="tk-br">},</span></div> -->
+<div class="line"><span class="tk-br">}</span></div>
+<div class="line line-empty"></div>
+<div class="line"><span class="tk-kw">return</span> <span class="tk-prop">me</span><span class="nvim-cursor"></span></div>
+        </div>
+      </div>
+
+      <div class="nvim-statusline" aria-hidden="true">
+        <div class="seg mode" id="status-mode">NORMAL</div>
+        <div class="seg seg-branch"><i class="fas fa-code-branch"></i> master</div>
+        <div class="seg seg-file" id="status-file">~/trung-dao/whoami.lua</div>
+        <div class="seg seg-info">utf-8 · LF · lua</div>
+        <div class="seg seg-pos" id="status-pos">16,11</div>
+      </div>
+    </div>
+
+    <!-- short prose intro under the buffer for crawlers + humans -->
+    <div class="section" style="margin-top:18px;">
+      <div class="section-head">
+        <span class="section-prompt">$</span>
+        <span class="section-cmd">cat</span>
+        <span class="section-arg">about.txt</span>
+        <span class="section-meta">// 1st-year PhD · UW-Madison</span>
+      </div>
+      <p class="about-blurb">
+        Hi! I'm <strong class="me-name">Trung Dao</strong> &mdash; a 1st-year PhD student at <strong>UW-Madison</strong>,
+        advised by <a href="https://pages.cs.wisc.edu/~yongjaelee/">Prof. Yong Jae Lee</a>.
+        These days I poke at <strong class="hl">vision-language-action</strong> models and
+        <strong class="hl">world models</strong> &mdash; basically trying to convince a neural net to
+        <em>look</em> at the world, <em>imagine</em> what happens next, and <em>not bonk into the wall</em>
+        when it finally moves. The dream: agents that perceive, simulate, and actually do useful stuff
+        in the physical world.
+        Before grad school I was a Staff ML Engineer at <strong>Qualcomm AI Research</strong>
+        (squeezing generative &amp; multimodal models onto phone-sized silicon), and an AI Engineer / Research Resident
+        at <strong>VinAI Research</strong> with Dr. Anh Tran &amp; Dr. Cuong Pham, mostly hacking on
+        diffusion distillation and GANs.
+        Outside of research: cold brew, naps, and arguing with my cats.
+      </p>
+      <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
+        {% for link in site.links %}
+          <a class="pub-link" href="{{ link[1].URL }}" target="_blank" rel="noopener">
+            <i class="{{ link[1].icon }}"></i><span>{{ link[1].label }}</span>
+          </a>
+        {% endfor %}
+        {% assign cv_page = site.pages | where: "permalink", "/cv/" | first %}
+        <a class="pub-link" href="/cv.pdf" target="_blank" rel="noopener"
+           {% if cv_page.last_updated %}data-last-updated="last updated: {{ cv_page.last_updated }}"{% endif %}>
+          <i class="fas fa-file-pdf"></i><span>CV</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       NEWS
+       ==================================================================== -->
+  <section class="section" id="news">
+    <div class="section-head">
+      <span class="section-prompt">$</span>
+      <span class="section-cmd">tail</span>
+      <span class="section-arg">-f changelog.md</span>
+      <span class="section-meta">// recent news</span>
+    </div>
+    <div class="news-log">
+      {% for item in site.data.news %}
+      <div class="news-row">
+        <span class="date"><span class="marker">▶</span> {{ item.date }}</span>
+        <span class="body">{{ item.content }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       PUBLICATIONS
+       ==================================================================== -->
+  <section class="section" id="pubs">
+    <div class="section-head">
+      <span class="section-prompt">$</span>
+      <span class="section-cmd">grep</span>
+      <span class="section-arg">-r '@inproceedings' ./publications/</span>
+      <span class="section-meta">// {{ site.data.publications | size }} entries · * = equal contribution</span>
+    </div>
+
+    <div class="pubs-grid">
+      {% assign authors = site.data.authors %}
+      {% for publication in site.data.publications %}
+        {% assign slug = publication.id | default: forloop.index %}
+        <article class="pub-card" id="pub-{{ slug }}">
+          <header class="pub-tab">
+            <span class="tab-num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <span class="pub-tab-name">pub_{{ slug }}.bib</span>
+            <span class="pub-tab-venue">{{ publication.venue }}</span>
+            {% for award in publication.awards %}
+              <span class="pub-tab-award">★ {{ award }}</span>
+            {% endfor %}
+          </header>
+          <div class="pub-body">
+            <div class="pub-thumb">
+              <img src="./images/{{ publication.image }}" alt="{{ publication.title }}" loading="lazy">
+              <video autoplay preload playsinline loop muted>
+                <source src="./images/{{ publication.image_mouseover }}" type="video/mp4">
+              </video>
             </div>
-         </div>
-      </header>
-      <main class="container mx-auto px-2 mb-2">
-         <section id="news" class="content-section">
-            <h2>🌟 News</h2>
-            <table style="border-collapse: collapse;">
-               {% for item in site.data.news %}
-               <tr>
-                  <td style="border: none; padding: 5px;">
-                     <strong style="color: #EECAD5;">[{{ item.date | date: "%m/%Y" }}]</strong>
-                  </td>
-                  <td style="border: none; padding: 5px;">
-                     {{ item.content }}
-                  </td>
-               </tr>
-               {% endfor %}
-            </table>
-         </section>
-         <h2 class="title is-3">Publications<br><small><small><sup>* means equal contribution</sup></small></small></h2>
-         {% assign authors = site.data.authors %}
-         {% assign publications = site.data.publications %}
-         {% for publication in publications %}
-          <div class="publication">
-            <div class="publication-header">
-              <div class="publication-image">
-                <img src="./images/{{ publication.image }}" alt="{{ publication.title }}">
-                <video class="publication-video" autoplay preload playsinline loop muted>
-                  <source src="./images/{{ publication.image_mouseover }}" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+            <div class="pub-info">
+              <h3 class="pub-title">{{ publication.title }}</h3>
+              <p class="pub-authors">
+                {% assign author_list = "" %}
+                {% for author in publication.authors %}
+                  {% assign author_details = authors[author.author_id] %}
+                  {% assign full_name = author_details.first_name %}
+                  {% if author_details.middle_name %}
+                    {% assign full_name = full_name | append: " " | append: author_details.middle_name %}
+                  {% endif %}
+                  {% assign full_name = full_name | append: " " | append: author_details.last_name %}
+                  {% if author_details.is_me %}
+                    {% assign full_name = "<span class='me'>" | append: full_name | append: "</span><sup>" | append: author.sign | append: "</sup>" %}
+                  {% else %}
+                    {% assign full_name = "<a href='" | append: author_details.website | append: "' target='_blank' rel='noopener'>" | append: full_name | append: "</a><sup>" | append: author.sign | append: "</sup>" %}
+                  {% endif %}
+                  {% if forloop.last %}
+                    {% assign author_list = author_list | append: full_name %}
+                  {% else %}
+                    {% assign author_list = author_list | append: full_name | append: ", " %}
+                  {% endif %}
+                {% endfor %}
+                {{ author_list }}
+              </p>
+              <p class="pub-desc">{{ publication.description }}</p>
+              <div class="pub-links">
+                {% if publication.project_page %}
+                <a class="pub-link" href="{{ publication.project_page }}" target="_blank" rel="noopener">
+                  <i class="fas fa-globe"></i><span>project</span>
+                </a>
+                {% endif %}
+                {% if publication.arxiv %}
+                <a class="pub-link" href="https://arxiv.org/abs/{{ publication.arxiv }}" target="_blank" rel="noopener">
+                  <i class="ai ai-arxiv"></i><span>arXiv</span>
+                </a>
+                {% endif %}
+                {% if publication.github %}
+                <a class="pub-link" href="https://github.com/{{ publication.github }}" target="_blank" rel="noopener">
+                  <i class="fab fa-github"></i><span>code</span>
+                </a>
+                {% endif %}
               </div>
-             <div class="publication-details">
-                <h3 class="publication-title">{{ publication.title }}</h3>
-                <p>Authors:
-                  {% assign author_list = "" %}
-                  {% for author in publication.authors %}
-                    {% assign author_details = authors[author.author_id] %}
-                    {% assign full_name = author_details.first_name %}
-                    {% if author_details.middle_name %}
-                      {% assign full_name = full_name | append: " " | append: author_details.middle_name %}
-                    {% endif %}
-                    {% assign full_name = full_name | append: " " | append: author_details.last_name %}
-                    {% if author_details.is_me %}
-                      {% assign full_name = "<strong style='color: #EECAD5;'>" | append: full_name | append: "</strong><sup>" | append: author.sign | append: "</sup>" %}
-                    {% else %}
-                      {% assign full_name = "<a href='" | append: author_details.website | append: "'>" | append: full_name | append: "</a><sup>" | append: author.sign | append: "</sup>" %}
-                    {% endif %}
-                    {% if forloop.last %}
-                      {% assign author_list = author_list | append: full_name %}
-                    {% else %}
-                      {% assign author_list = author_list | append: full_name | append: ", " %}
-                    {% endif %}
-                  {% endfor %}
-                  {{ author_list }}
-                </p>
-                <div class="publication-venue">
-                   <span>{{ publication.venue }}</span>
-                   {% for award in publication.awards %}
-                   <span class="publication-venue-emph">{{ award }}</span>
-                   {% endfor %}
-                </div>
-                <p class="publication-description">{{ publication.description }}</p>
-                <!-- Publication Links. -->
-                <div class="publication-links buttons field has-addons">
-                   {% if publication.project_page %}
-                   <a class="external-link button is-small is-ghost" href="{{ publication.project_page }}">
-                   <span class="icon"><i class="fas fa-globe-asia"></i></span>
-                   <span>Project Page</span>
-                   </a>
-                   {% endif %}
-                   {% if publication.arxiv %}
-                   <a class="external-link button is-small is-ghost" href="https://arxiv.org/abs/{{ publication.arxiv }}">
-                   <span class="icon"><i class="ai ai-arxiv"></i></span>
-                   <span>arXiv</span>
-                   </a>
-                   {% endif %}
-                   {% if publication.github %}
-                   <a class="external-link button is-small is-ghost" href="https://github.com/{{ publication.github }}">
-                   <span class="icon"><i class="fa fab fa-github"></i></span>
-                   <span>GitHub</span>
-                   </a>
-                   {% endif %}
-                </div>
-             </div>
+            </div>
           </div>
-         </div>
-         {% endfor %}
-      </main>
-      {% include footer.html %}
-   </body>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       CONTACT
+       ==================================================================== -->
+  <section class="section" id="contact">
+    <div class="section-head">
+      <span class="section-prompt">$</span>
+      <span class="section-cmd">cat</span>
+      <span class="section-arg">contact.json</span>
+      <span class="section-meta">// reach me</span>
+    </div>
+    <div class="news-log contact-block">
+<pre class="contact-pre">
+<span class="tk-br">{</span>
+  <span class="tk-prop">"email"</span><span class="tk-op">:</span>    <span class="tk-str">"tdao6 [at] wisc [dot] edu"</span><span class="tk-br">,</span>
+  <span class="tk-prop">"office"</span><span class="tk-op">:</span>   <span class="tk-str">"CS @ UW-Madison"</span><span class="tk-br">,</span>
+  <span class="tk-prop">"github"</span><span class="tk-op">:</span>   <span class="tk-str">"@trungdt880"</span><span class="tk-br">,</span>
+  <span class="tk-prop">"scholar"</span><span class="tk-op">:</span>  <span class="tk-str">"FZmxEYYAAAAJ"</span><span class="tk-br">,</span>
+  <span class="tk-prop">"open_to"</span><span class="tk-op">:</span>  <span class="tk-br">[</span><span class="tk-str">"collabs"</span><span class="tk-br">,</span> <span class="tk-str">"chats about VLA / world models"</span><span class="tk-br">,</span> <span class="tk-str">"book recs"</span><span class="tk-br">]</span>
+<span class="tk-br">}</span>
+</pre>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span>:wq! &mdash; built with jekyll, vibes &amp; <span class="heart">♥</span> &middot; {{ 'now' | date: "%Y" }}</span>
+    <br>
+    <span class="dim">no trackers (besides analytics). thanks <a href="https://giphy.com/">GIPHY</a> for old gifs.</span>
+  </footer>
+
+  <!-- ====================================================================
+       CMDLINE (always visible)
+       ==================================================================== -->
+  <div class="nvim-cmdline-wrap">
+    <form class="nvim-cmdline" id="cmdform" autocomplete="off" onsubmit="return false;">
+      <span class="prompt">:</span>
+      <input id="cmd" type="text" placeholder="try :help, :pubs, :cv, :gh, :scholar, :wq" spellcheck="false" />
+      <span class="hint"><kbd>?</kbd> help · <kbd>g</kbd><kbd>g</kbd> top · <kbd>G</kbd> bottom · <kbd>j</kbd>/<kbd>k</kbd> scroll</span>
+    </form>
+  </div>
+
+  <!-- Help overlay -->
+  <div class="nvim-help" id="helpOverlay" role="dialog" aria-hidden="true">
+    <div class="panel">
+      <header>
+        <span>:help — keymaps &amp; commands</span>
+        <span style="color:#cba6f7;">press <kbd>Esc</kbd> to close</span>
+      </header>
+      <section>
+        <table>
+          <tr><td><kbd>?</kbd></td><td>open this help</td></tr>
+          <tr><td><kbd>:</kbd></td><td>focus command line</td></tr>
+          <tr><td><kbd>j</kbd> / <kbd>k</kbd></td><td>scroll down / up</td></tr>
+          <tr><td><kbd>g</kbd><kbd>g</kbd> / <kbd>G</kbd></td><td>jump to top / bottom</td></tr>
+          <tr><td><kbd>1</kbd>–<kbd>5</kbd></td><td>jump to buffer (whoami, news, pubs, contact, blog)</td></tr>
+        </table>
+      </section>
+      <section style="border-top:1px solid #313244;">
+        <table>
+          <tr><td>:help</td><td>show this overlay</td></tr>
+          <tr><td>:about</td><td>scroll to about</td></tr>
+          <tr><td>:news</td><td>scroll to news</td></tr>
+          <tr><td>:pubs</td><td>scroll to publications</td></tr>
+          <tr><td>:contact</td><td>scroll to contact</td></tr>
+          <tr><td>:cv</td><td>open cv.pdf</td></tr>
+          <tr><td>:gh / :github</td><td>open GitHub</td></tr>
+          <tr><td>:scholar</td><td>open Google Scholar</td></tr>
+          <tr><td>:linkedin</td><td>open LinkedIn</td></tr>
+          <tr><td>:gallery</td><td>open photo gallery</td></tr>
+          <tr><td>:blog</td><td>go to /blog/</td></tr>
+          <tr><td>:theme [mocha|latte]</td><td>swap palette</td></tr>
+          <tr><td>:sudo make me a sandwich</td><td>🥪</td></tr>
+          <tr><td>:wq / :q</td><td>say goodbye</td></tr>
+        </table>
+      </section>
+    </div>
+  </div>
+
+  <div class="nvim-toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/assets/nvim.js" defer></script>
+</body>
 </html>
