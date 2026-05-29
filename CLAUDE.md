@@ -77,7 +77,6 @@ Two breakpoints in `_components.scss`: `@media (max-width: 720px)` and `@media (
 - Nerd Font glyphs render as tofu without Nerd Font installed — use FontAwesome (already loaded) for icons in chrome.
 - Posts live in `_posts/` with frontmatter `layout: category-post` and `categories: <name>`. Permalink format is `/<category>/YYYY/MM/DD/slug.html` (Jekyll default).
 - CV file: `cv.pdf` at root. `cv.md` redirect page carries `last_updated` in frontmatter — bump it whenever you re-export the PDF; the home-page CV chip pulls this for the hover tooltip.
-- GitHub handle: `trungdt880`. Email: `tdao6@wisc.edu`. Update both in `_config.yml` (`site.links.github`), `assets/nvim.js` (`:gh`, `:email` cmds), and the `contact.json` block in `home.html` if either changes.
 
 ## Files Not To Touch Without Reason
 
