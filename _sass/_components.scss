@@ -349,6 +349,24 @@
   font-family: $mono-font;
   font-size: 14px;
   overflow: hidden;
+
+  // scrollable feed: show ~4 latest, scroll for older
+  &:not(.contact-block) {
+    max-height: 232px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: $surface1 transparent;
+
+    &::-webkit-scrollbar { width: 8px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb {
+      background: $surface1;
+      border-radius: 8px;
+      border: 2px solid $mantle;
+    }
+    &::-webkit-scrollbar-thumb:hover { background: $overlay0; }
+  }
 }
 .news-row {
   display: grid;
@@ -435,20 +453,26 @@
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  background: $crust;
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba($mauve, 0.10), transparent 60%),
+    $crust;
   border: 1px solid $surface1;
   aspect-ratio: 4 / 3;
+  padding: 6px;
 
   img, video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
+    border-radius: 4px;
     transition: opacity 0.2s ease, transform 0.5s ease;
   }
   video {
     position: absolute;
-    inset: 0;
+    inset: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
     opacity: 0;
   }
 
@@ -1123,6 +1147,14 @@ body.theme-latte {
   .news-log {
     background: $l-mantle;
     border-color: $l-surface0;
+    &:not(.contact-block) {
+      scrollbar-color: $l-surface1 transparent;
+      &::-webkit-scrollbar-thumb {
+        background: $l-surface1;
+        border-color: $l-mantle;
+      }
+      &::-webkit-scrollbar-thumb:hover { background: $l-overlay0; }
+    }
   }
   .news-row {
     border-bottom-color: $l-surface0;
